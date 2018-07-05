@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block head %}
+
+<title>Detailed page</title>
+
+{% endblock %}
+
+{%block body%}
+
+<div class="jumbotron jumbotron-fluid bg-dark text-white text-center">
+  <div class="container">
+
+<div style="float: left;"><img class="rounded-circle" src="{%static "library.jpg" %}" width="110px" height="100px" alt="Broken"></div>
+
+<h1><strong>Welcome to Novel Library</strong></h1>
+<p><strong>Why buy a book when you can join a library...</strong></p>
+  </div> 
+</div>
+<style>
+	body {background: url(http://blog.hostbaby.com/wp-content/uploads/2013/07/scuffedstatic_blue_1920x1234.jpg); background-size: 100% 100% ;}
+</style>
+
+{% for i in var %}
+<h5 class="display-4 text-center text-white"><u>{{i.title}}</u></h5>
+<img class="img-thumbnail" src=" {{ i.image.url }}" alt="profilepic" height="300px" width="300px"><br><br>
+<h4 class="text-info">{{i.author}}</h4>
+<p class="text-white text-right"><strong>{{i.published}}</strong></p><br><br>
+
+<p class="lead text-white" style="font-family: arial;">The beauty of reading a book is, you can take it outdoors with you, so you can enjoy all the therapeutic benefits of reading combined with relaxing in nature, and there is no need for any electrical cables, power points or batteries.
+
+Reading is a valuable way of self educating yourself and an excellent way of filling in your time, and it will give you a welcome break, from our sometimes mundane and repetitive lives. 
+
+Reading will give you a more diverse range of knowledge and it can give you an insight into different cultures and ways of living and I think we can all learn a bit from other cultures.
+
+Another benefit of reading is, it will expand your awareness and your knowledge database, this will allow you to open your mind and form new beliefs and opinions, so you can draw your own conclusions instead of just relying on what others have told you.
+
+Words are very powerful and influential both positively and negatively, so it is important to read the correct information and dismiss the negative.
+
+<img class="img-thumbnail" src=" {{ i.optional_image.url }}" align="right" alt="profilepic" height="500px" width="500px">{{i.body_text}}</p>
+
+
+<div class="container">
+  <div class="card-header bg-dark text-white text-center">
+  <h3 class="dispalay-3">What to Read Next?</h3>
+</div><br><br>
+</div>
+
+{% endfor %}
+
+{% endblock %}
